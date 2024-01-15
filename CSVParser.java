@@ -17,7 +17,7 @@ public class CSVParser {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = br.readLine()) != null) {
-                String[] row = line.split(",");
+                String[] row = line.split(";");
                 data.add(row);
             }
         } catch (IOException e) {

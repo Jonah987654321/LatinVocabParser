@@ -7,6 +7,6 @@ public class VocabParser {
 
       CSVParser parser = new CSVParser("voc_list.csv");
       List<String[]> data = parser.parse();
-      System.out.print(data);
+      System.out.print(data.get(0));
    }
 }
