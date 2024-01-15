@@ -6,7 +6,7 @@ public class VocabParser {
       System.out.println("Hello, World");
 
       CSVParser parser = new CSVParser("voc_list.csv");
-      List<String[]> data = parser.parse();
+      List<List<String>> data = parser.parse();
       System.out.print(data.get(0));
    }
 }
