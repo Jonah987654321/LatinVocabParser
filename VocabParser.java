@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 
 public class VocabParser {
@@ -13,11 +14,11 @@ public class VocabParser {
       it.next(); //Skipping head
       while (it.hasNext()) {
          List<String> vocab = it.next();
-         Vocab tmpVocab = new Vocab(vocab.get(0), vocab.get(1), vocab.get(2), vocab.get(3));
+         Vocab tmpVocab = new Vocab(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(2), vocab.get(3));
          allVocabs.add(tmpVocab);
       }
 
-      Vocab test = allVocabs.get(34);
-      System.out.println(test.getLatein());
+      Vocab test = allVocabs.get(0);
+      System.out.println(test.getTranslations());
    }
 }

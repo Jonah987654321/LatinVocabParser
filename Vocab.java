@@ -1,12 +1,14 @@
+import java.util.List;
+
 public class Vocab {
     private String latein;
-    private String translation;
+    private List<String> translations;
     private String wortart;
     private String lektion;
 
-    public Vocab(String latein, String translation, String wortart, String lektion) {
+    public Vocab(String latein, List<String> translations, String wortart, String lektion) {
         this.latein = latein;
-        this.translation = translation;
+        this.translations = translations;
         this.wortart = wortart;
         this.lektion = lektion;
     }
@@ -15,8 +17,8 @@ public class Vocab {
         return latein;
     }
     
-    public String getTranslation() {
-        return translation;
+    public List<String> getTranslations() {
+        return translations;
     }
     
     public String getWortart() {
