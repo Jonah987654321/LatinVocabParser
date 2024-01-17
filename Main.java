@@ -5,7 +5,7 @@ public class Main {
         VocabParser vocabParser = new VocabParser();
         List<Vocab> vocabulary = vocabParser.parseToVocab();
 
-        Vocab test = vocabulary.get(1);
+        Vocab test = vocabulary.get(0);
         System.out.println(test.getGerman());
     }
 }
