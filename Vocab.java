@@ -13,19 +13,19 @@ public class Vocab {
         this.lektion = lektion;
     }
 
-    public String getLatein() {
+    public String getLatin() {
         return latein;
     }
     
-    public List<String> getTranslations() {
+    public List<String> getGerman() {
         return translations;
     }
     
-    public String getWortart() {
+    public String getWordType() {
         return wortart;
     }
     
-    public String getLektion() {
+    public String getLesson() {
         return lektion;
     }
 }

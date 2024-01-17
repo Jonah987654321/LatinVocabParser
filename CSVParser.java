@@ -11,24 +11,25 @@ public class CSVParser {
     private String filePath;
     private String splitChar;
 
-    public CSVParser(String filePath, String splitChar) {
+    public CSVParser(String filePath, String splitChar)
+    {
         this.filePath = filePath;
         this.splitChar = splitChar;
     }
 
     public List<List<String>> parse() {
-        List<List<String>> data = new ArrayList<>();
-
+        List<List<String>> data = new ArrayList<>(1150);
+    
         try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), StandardCharsets.UTF_8))) {
             String line;
+
             while ((line = br.readLine()) != null) {
-                List<String> row = new ArrayList<>(Arrays.asList(line.split(this.splitChar)));
-                data.add(row);
+                data.add(Arrays.asList(line.split(this.splitChar)));
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+    
         return data;
     }
 }
