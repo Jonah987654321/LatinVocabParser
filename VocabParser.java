@@ -19,7 +19,27 @@ public class VocabParser {
       it.next(); //Skip head
       while(it.hasNext()) {
          List<String> vocab = it.next();
-         vocabulary.add(new Vocab(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(2), vocab.get(3)));
+
+         Vocab tmpVocab;
+         switch (Arrays.asList(vocab.get(2).split(", ")).get(0)) {
+            case "Verb":
+               tmpVocab = new Vocab(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(2), vocab.get(3));
+               break;
+
+            case "Substantiv":
+               tmpVocab = new Vocab(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(2), vocab.get(3));
+               break;
+
+            case "Adjektiv":
+               tmpVocab = new Vocab(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(2), vocab.get(3));
+               break;
+         
+            default:
+               tmpVocab = new Vocab(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(2), vocab.get(3));
+               break;
+         }
+
+         vocabulary.add(tmpVocab);
       }
 
       return vocabulary;
