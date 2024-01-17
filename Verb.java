@@ -1,20 +1,14 @@
 import java.util.List;
 
 public class Verb extends Vocab {
-    private String genitive;
-    private String gender;
+    private String[] stemForm;
 
-    public Verb(String basicForm, List<String> translations, String wordType, String lesson, String genitive, String gender) {
+    public Verb(String basicForm, List<String> translations, String wordType, String lesson, String[] stemForms) {
         super(basicForm, translations, wordType, lesson);
-        this.genitive = genitive;
-        this.gender = gender;
-    }
+        
+        public String getStemForms() {
+            return gender;
+        }
 
-    public String getGenitive() {
-        return genitive;
-    }
-
-    public String getGender() {
-        return gender;
     }
 }
