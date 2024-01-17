@@ -1,31 +1,31 @@
 import java.util.List;
 
 public class Vocab {
-    private String latein;
+    private String basicForm;
     private List<String> translations;
-    private String wortart;
-    private String lektion;
+    private String wordType;
+    private String lesson;
 
-    public Vocab(String latein, List<String> translations, String wortart, String lektion) {
-        this.latein = latein;
+    public Vocab(String basicForm, List<String> translations, String wordType, String lesson) {
+        this.basicForm = basicForm;
         this.translations = translations;
-        this.wortart = wortart;
-        this.lektion = lektion;
+        this.wordType = wordType;
+        this.lesson = lesson;
     }
 
-    public String getLatin() {
-        return latein;
+    public String getBasicForm() {
+        return basicForm;
     }
     
     public List<String> getGerman() {
         return translations;
     }
-    
+
     public String getWordType() {
-        return wortart;
+        return wordType;
     }
     
     public String getLesson() {
-        return lektion;
+        return lesson;
     }
 }
