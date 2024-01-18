@@ -40,12 +40,9 @@ public class VocabParser {
                break;
          }
 
-         vocabulary.add(tmpVocab); 
+         vocabulary.add(tmpVocab);
       }
 
       return vocabulary;
    }
-
-   void getStemForms()
-   {};
 }
