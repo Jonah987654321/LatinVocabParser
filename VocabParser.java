@@ -11,6 +11,7 @@ public class VocabParser {
       return data;
    }
 
+
    public List<Vocab> parseToVocab() {
       List<List<String>> rawData = getData();
       List<Vocab> vocabulary = new ArrayList<Vocab>();
@@ -39,9 +40,12 @@ public class VocabParser {
                break;
          }
 
-         vocabulary.add(tmpVocab);
+         vocabulary.add(tmpVocab); 
       }
 
       return vocabulary;
    }
+
+   void getStemForms()
+   {};
 }

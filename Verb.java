@@ -5,10 +5,10 @@ public class Verb extends Vocab {
 
     public Verb(String basicForm, List<String> translations, String wordType, String lesson, String[] stemForms) {
         super(basicForm, translations, wordType, lesson);
-        
-        public String getStemForms() {
-            return gender;
-        }
 
     }
+
+    public String getStemForms() {
+            return stemForms;
+        }
 }
