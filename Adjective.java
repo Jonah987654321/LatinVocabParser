@@ -1,20 +1,31 @@
 import java.util.List;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Adjective extends Vocab {
-    private String genitive;
-    private String gender;
 
-    public Adjective(String basicForm, List<String> translations, String wordType, String lesson, String genitive, String gender) {
+    public Adjective(String basicForm, List<String> translations, String wordType, String lesson) {
         super(basicForm, translations, wordType, lesson);
-        this.genitive = genitive;
-        this.gender = gender;
     }
 
-    public String getGenitive() {
-        return genitive;
+    public ArrayList<String> getMaskulinumDeklination() {
+        return new ArrayList<String>();
     }
 
-    public String getGender() {
-        return gender;
+    public ArrayList<String> getFemininumDeklination() {
+        return new ArrayList<String>();
+    }
+
+    public ArrayList<String> getNeutrumDeklination() {
+        return new ArrayList<String>();
+    }
+
+    public HashMap<String, ArrayList<String>> getAllDeklination() {
+        HashMap<String, ArrayList<String>> allDekl = new HashMap<String, ArrayList<String>>();
+        allDekl.put("m", getMaskulinumDeklination());
+        allDekl.put("f", getFemininumDeklination());
+        allDekl.put("n", getNeutrumDeklination());
+
+        return allDekl;
     }
 }
