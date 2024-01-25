@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -14,6 +15,9 @@ public class Main {
         VocabTestParser parser = new VocabTestParser();
         List<Vocab> vocabulary = parser.getAllVocabs();
         Vocab test = vocabulary.get(3);
-        System.out.println(test.getGerman());
+        //System.out.println(test.getGerman());
+
+        Verb vtest = new Verb("addere, addo, addidi, additum", Arrays.asList("hinzufügen"), "10");
+        System.out.println(vtest.getPraesens());
     }
 }

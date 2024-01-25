@@ -4,8 +4,8 @@ import java.util.HashMap;
 
 public class Adjective extends Vocab {
 
-    public Adjective(String basicForm, List<String> translations, String wordType, String lesson) {
-        super(basicForm, translations, wordType, lesson);
+    public Adjective(String basicForm, List<String> translations, String lesson) {
+        super(basicForm, translations, lesson);
     }
 
     public ArrayList<String> getMaskulinumDeklination() {

@@ -6,8 +6,8 @@ public class Noun extends Vocab {
     private String gender;
     private ArrayList<String> deklination;
 
-    public Noun(String basicForm, List<String> translations, String wordType, String lesson, String genitive, String gender) {
-        super(basicForm, translations, wordType, lesson);
+    public Noun(String basicForm, List<String> translations, String lesson, String genitive, String gender) {
+        super(basicForm, translations, lesson);
         this.genitive = genitive;
         this.gender = gender;
         generateDeklination();

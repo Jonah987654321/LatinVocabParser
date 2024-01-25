@@ -6,11 +6,14 @@ public class Vocab {
     private String wordType;
     private String lesson;
 
-    public Vocab(String basicForm, List<String> translations, String wordType, String lesson) {
+    public Vocab(String basicForm, List<String> translations, String lesson) {
         this.basicForm = basicForm;
         this.translations = translations;
-        this.wordType = wordType;
         this.lesson = lesson;
+    }
+
+    protected void setBasicForm(String form) {
+        this.basicForm = form;
     }
 
     public String getBasicForm() {
