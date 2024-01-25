@@ -33,7 +33,7 @@ with open("voc_list.csv", encoding="UTF-8") as file:
         else:
             other.append(vocab)
 
-with open("verbs.csv", "+w") as file:
+with open("verbs.csv", "+w", newline="", encoding="UTF-8") as file:
     writer = csv.writer(file, delimiter=";")
     for vocab in verbs:
         baseform = vocab.latin.split(", ")
@@ -47,3 +47,5 @@ with open("verbs.csv", "+w") as file:
                     writer.writerow([baseform[0], baseform[0][:-2]])
             else:
                 writer.writerow([baseform[0], baseform[1][:-1]])
+        else:
+            print(baseform)
