@@ -35,7 +35,7 @@ public class Verb extends Vocab {
 
                 if (basicForm.endsWith("are")) {
 
-                    // A DEKLINATION
+                    // A KONJUGATION
 
                     String praesensBaseform = basicForm.substring(0, basicForm.length()-3);
                     
@@ -53,6 +53,13 @@ public class Verb extends Vocab {
                     imperfekt.add(praesensBaseform + "batis");
                     imperfekt.add(praesensBaseform + "bant");
 
+                    futurI.add(praesensBaseform + "bo");
+                    futurI.add(praesensBaseform + "bis");
+                    futurI.add(praesensBaseform + "bit");
+                    futurI.add(praesensBaseform + "bimus");
+                    futurI.add(praesensBaseform + "bitis");
+                    futurI.add(praesensBaseform + "bunt");
+
                     String perfektBaseform = basicForm.substring(0, basicForm.length()-2) + "v";
                     
                     perfekt.add(perfektBaseform + "i");
@@ -61,9 +68,16 @@ public class Verb extends Vocab {
                     perfekt.add(perfektBaseform + "imus");
                     perfekt.add(perfektBaseform + "istis");
                     perfekt.add(perfektBaseform + "erunt");
+
+                    plusquamperfekt.add(perfektBaseform + "eram");
+                    plusquamperfekt.add(perfektBaseform + "eras");
+                    plusquamperfekt.add(perfektBaseform + "erat");
+                    plusquamperfekt.add(perfektBaseform + "eramus");
+                    plusquamperfekt.add(perfektBaseform + "eratis");
+                    plusquamperfekt.add(perfektBaseform + "erant");
                 } else {
 
-                    // E-DEKLINATION (?)
+                    // E-KONJUGATION (?)
 
                     String praesensBaseform = basicForm.substring(0, basicForm.length()-2);
 
@@ -81,6 +95,13 @@ public class Verb extends Vocab {
                     imperfekt.add(praesensBaseform + "batis");
                     imperfekt.add(praesensBaseform + "bant");
 
+                    futurI.add(praesensBaseform + "bo");
+                    futurI.add(praesensBaseform + "bis");
+                    futurI.add(praesensBaseform + "bit");
+                    futurI.add(praesensBaseform + "bimus");
+                    futurI.add(praesensBaseform + "bitis");
+                    futurI.add(praesensBaseform + "bunt");
+
                     String perfektBaseform = basicForm.substring(0, basicForm.length()-3) + "u";
                     
                     perfekt.add(perfektBaseform + "i");
@@ -89,6 +110,13 @@ public class Verb extends Vocab {
                     perfekt.add(perfektBaseform + "imus");
                     perfekt.add(perfektBaseform + "istis");
                     perfekt.add(perfektBaseform + "erunt");
+
+                    plusquamperfekt.add(perfektBaseform + "eram");
+                    plusquamperfekt.add(perfektBaseform + "eras");
+                    plusquamperfekt.add(perfektBaseform + "erat");
+                    plusquamperfekt.add(perfektBaseform + "eramus");
+                    plusquamperfekt.add(perfektBaseform + "eratis");
+                    plusquamperfekt.add(perfektBaseform + "erant");
                 }
 
             } else {
@@ -112,6 +140,13 @@ public class Verb extends Vocab {
                 imperfekt.add(praesensBaseform + "ebatis");
                 imperfekt.add(praesensBaseform + "ebant");
 
+                futurI.add(praesensBaseform + "am");
+                futurI.add(praesensBaseform + "es");
+                futurI.add(praesensBaseform + "et");
+                futurI.add(praesensBaseform + "emus");
+                futurI.add(praesensBaseform + "etis");
+                futurI.add(praesensBaseform + "ent");
+
                 String firstPersPerf = givenForms.get(2);
                 String perfektBaseform = firstPersPerf.substring(0, firstPersPerf.length()-1);
                     
@@ -121,6 +156,13 @@ public class Verb extends Vocab {
                 perfekt.add(perfektBaseform + "imus");
                 perfekt.add(perfektBaseform + "istis");
                 perfekt.add(perfektBaseform + "erunt");
+
+                plusquamperfekt.add(perfektBaseform + "eram");
+                plusquamperfekt.add(perfektBaseform + "eras");
+                plusquamperfekt.add(perfektBaseform + "erat");
+                plusquamperfekt.add(perfektBaseform + "eramus");
+                plusquamperfekt.add(perfektBaseform + "eratis");
+                plusquamperfekt.add(perfektBaseform + "erant");
             }
         }
     }
