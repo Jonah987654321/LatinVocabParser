@@ -75,6 +75,13 @@ public class Verb extends Vocab {
                     plusquamperfekt.add(perfektBaseform + "eramus");
                     plusquamperfekt.add(perfektBaseform + "eratis");
                     plusquamperfekt.add(perfektBaseform + "erant");
+
+                    futurII.add(perfektBaseform + "ero");
+                    futurII.add(perfektBaseform + "eris");
+                    futurII.add(perfektBaseform + "erit");
+                    futurII.add(perfektBaseform + "erimus");
+                    futurII.add(perfektBaseform + "eritis");
+                    futurII.add(perfektBaseform + "erint");
                 } else {
 
                     // E-KONJUGATION (?)
@@ -117,6 +124,13 @@ public class Verb extends Vocab {
                     plusquamperfekt.add(perfektBaseform + "eramus");
                     plusquamperfekt.add(perfektBaseform + "eratis");
                     plusquamperfekt.add(perfektBaseform + "erant");
+
+                    futurII.add(perfektBaseform + "ero");
+                    futurII.add(perfektBaseform + "eris");
+                    futurII.add(perfektBaseform + "erit");
+                    futurII.add(perfektBaseform + "erimus");
+                    futurII.add(perfektBaseform + "eritis");
+                    futurII.add(perfektBaseform + "erint");
                 }
 
             } else {
@@ -163,6 +177,13 @@ public class Verb extends Vocab {
                 plusquamperfekt.add(perfektBaseform + "eramus");
                 plusquamperfekt.add(perfektBaseform + "eratis");
                 plusquamperfekt.add(perfektBaseform + "erant");
+
+                futurII.add(perfektBaseform + "ero");
+                futurII.add(perfektBaseform + "eris");
+                futurII.add(perfektBaseform + "erit");
+                futurII.add(perfektBaseform + "erimus");
+                futurII.add(perfektBaseform + "eritis");
+                futurII.add(perfektBaseform + "erint");
             }
         }
     }
@@ -197,8 +218,8 @@ public class Verb extends Vocab {
         allForms.put("Perfekt", getPerfekt());
         allForms.put("Plusquamperfekt", getPlusquamperfekt());
         allForms.put("Praesens", getPraesens());
-        allForms.put("FutureI", getFuturI());
-        allForms.put("FutureII", getFuturII());
+        allForms.put("FuturI", getFuturI());
+        allForms.put("FuturII", getFuturII());
 
         return allForms;
     }

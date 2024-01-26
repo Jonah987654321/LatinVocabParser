@@ -17,7 +17,7 @@ public class Main {
         Vocab test = vocabulary.get(3);
         //System.out.println(test.getGerman());
 
-        Verb vtest = new Verb("addere, addo, addidi, additum", Arrays.asList("hinzufügen"), "10");
+        Verb vtest = new Verb("merere", Arrays.asList("hinzufügen"), "10");
         System.out.println(vtest.getTimeForms());
     }
 }
