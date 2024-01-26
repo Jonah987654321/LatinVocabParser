@@ -26,24 +26,17 @@ public class Noun extends Vocab {
         String nominativ = givenForms.get(0);
         String genitiv = "";
 
-        HashMap<String, HashMap<String, ArrayList<String>>> irregularities = new HashMap<String, HashMap<String, ArrayList<String>>>();
+        HashMap<String, HashMap<String, ArrayList<String>>> irregularities = new HashMap<>();
 
-        HashMap<String, ArrayList<String>> visForms = new HashMap<String, ArrayList<String>>();
-        ArrayList<String> visSingular = new ArrayList<String>();
-        visSingular.add("vis");
-        visSingular.add("");
-        visSingular.add("");
-        visSingular.add("vim");
-        visSingular.add("vi");
-        visForms.put("Singular", visSingular);
-        ArrayList<String> visPlural = new ArrayList<String>();
-        visPlural.add("vires");
-        visPlural.add("virium");
-        visPlural.add("viribus");
-        visPlural.add("vires");
-        visPlural.add("viribus");
-        visForms.put("Plural", visPlural);
+        HashMap<String, ArrayList<String>> visForms = new HashMap<>();
+        visForms.put("Singular", new ArrayList<>(Arrays.asList("vis", "", "", "vim", "vi")));
+        visForms.put("Plural", new ArrayList<>(Arrays.asList("vires", "virium", "viribus", "vires", "viribus")));
         irregularities.put("vis", visForms);
+            
+        HashMap<String, ArrayList<String>> parentesForms = new HashMap<>();
+        parentesForms.put("Singular", new ArrayList<>());
+        parentesForms.put("Plural", new ArrayList<>(Arrays.asList("parentes", "parentium", "parentibus", "rentibus", "parentibus")));
+        irregularities.put("parentes", parentesForms);
 
         if (irregularities.containsKey(nominativ)) {
             deklination = irregularities.get(nominativ);
