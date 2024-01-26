@@ -22,13 +22,14 @@ public class VocabParser {
          List<String> vocab = it.next();
 
          Vocab tmpVocab;
-         switch (Arrays.asList(vocab.get(2).split(", ")).get(0)) {
+         //switch (Arrays.asList(vocab.get(2).split(", ")).get(0)) {
+         switch (vocab.get(2)) {
             case "Verb":
                tmpVocab = new Verb(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3));
                break;
 
             case "Substantiv":
-               tmpVocab = new Vocab(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3));
+               tmpVocab = new Noun(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3));
                break;
 
             case "Adjektiv":
@@ -39,6 +40,8 @@ public class VocabParser {
                tmpVocab = new Vocab(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3));
                break;
          }
+
+         // Weiterhin zu beachten sind alle möglichen andere Worttypen (Adverben, Konjuktionen, etc.) und erweiterte (sowas wie Verb, unpersönlich)
 
          vocabulary.add(tmpVocab);
       }

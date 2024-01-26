@@ -3,7 +3,6 @@ import java.util.List;
 public class Vocab {
     private String basicForm;
     private List<String> translations;
-    private String wordType;
     private String lesson;
 
     public Vocab(String basicForm, List<String> translations, String lesson) {
@@ -22,10 +21,6 @@ public class Vocab {
     
     public List<String> getGerman() {
         return translations;
-    }
-
-    public String getWordType() {
-        return wordType;
     }
     
     public String getLesson() {

@@ -3,21 +3,18 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        /*VocabParser vocabParser = new VocabParser();
+        VocabParser vocabParser = new VocabParser();
         List<Vocab> vocabulary = vocabParser.parseToVocab();
 
-        Vocab test = vocabulary.get(26);
-        System.out.println(test.getBasicForm());
-        System.out.println(test.getGerman());
-        System.out.println(test.getLesson());
-        System.out.println(test.getWordType());*/
-
-        VocabTestParser parser = new VocabTestParser();
+        /*VocabTestParser parser = new VocabTestParser();
         List<Vocab> vocabulary = parser.getAllVocabs();
         Vocab test = vocabulary.get(3);
-        //System.out.println(test.getGerman());
+        //System.out.println(test.getGerman());*/
 
         Verb vtest = new Verb("merere", Arrays.asList("hinzufügen"), "10");
-        System.out.println(vtest.getTimeForms());
+        //System.out.println(vtest.getTimeForms());
+
+        Noun ntest = new Noun("sol, solis m", Arrays.asList("die Sonne"), "1");
+        //System.out.println(ntest.getGender());
     }
 }

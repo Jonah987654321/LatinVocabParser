@@ -1,29 +1,198 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Noun extends Vocab {
-    private String genitive;
     private String gender;
-    private ArrayList<String> deklination;
+    private HashMap<String, ArrayList<String>> deklination;
 
-    public Noun(String basicForm, List<String> translations, String lesson, String genitive, String gender) {
-        super(basicForm, translations, lesson);
-        this.genitive = genitive;
-        this.gender = gender;
-        generateDeklination();
+    public Noun(String latinInfo, List<String> translations, String lesson) {
+        super("", translations, lesson);
+        generateDeklination(latinInfo);
     }
 
-    private void generateDeklination() {
+    private void generateDeklination(String latinInfo) {
         if (this.deklination == null) {
-            this.deklination = new ArrayList<String>();
+            this.deklination = new HashMap<String, ArrayList<String>>();
         }
+
+        List<String> givenForms = Arrays.asList(latinInfo.split(", "));
+
+        String nominativ = givenForms.get(0);
+        String genitiv = "";
+
+        boolean pluralWord = false;
+
+        List<String> genList = Arrays.asList();
+        try {
+            genList = Arrays.asList(givenForms.get(1).split(" "));
+        } catch (ArrayIndexOutOfBoundsException e) {
+            return;
+        }
+
+        if (genList.size() == 2) {
+            // Regular word
+            genitiv = genList.get(0);
+            this.gender = genList.get(1);
+        } else if (genList.size() > 2) {
+            if (genList.get(genList.size()-1).contains("Pluralwort"))  {
+                // Pluralword
+                genitiv = genList.get(0);
+                this.gender = genList.get(1);
+                pluralWord = true;
+            } else {
+                // Vocab has more than one word (e.g. res publica)
+                this.gender = genList.get(genList.size()-1);
+                genitiv = genList.stream().limit(genList.size() - 1).collect(Collectors.joining(" "));;
+            }
+        }
+
+        ArrayList<String> singular = new ArrayList<String>();
+        ArrayList<String> plural = new ArrayList<String>();
+
+        if (pluralWord) {
+            plural.add(nominativ);
+            plural.add(genitiv);
+
+            if (genitiv.endsWith("orum")) {
+                String base = genitiv.substring(0, genitiv.length()-4);
+                plural.add(base + "is");
+                plural.add(base + "os");
+                plural.add(base + "is");
+            } else if (genitiv.endsWith("arum")) {
+                String base = genitiv.substring(0, genitiv.length()-4);
+                plural.add(base + "is");
+                plural.add(base + "as");
+                plural.add(base + "is");
+            } else {
+                String base = genitiv.substring(0, genitiv.length()-2);
+                if (base.endsWith("i")) {
+                    base = base.substring(0, base.length()-1);
+                }
+                plural.add(base + "ibus");
+                plural.add(nominativ);
+                plural.add(base + "ibus");
+            }
+
+        } else if (nominativ.endsWith("a")) {
+            if (genitiv.endsWith("ae")) {
+                // A DEKLINATION
+                String base = genitiv.substring(0, genitiv.length()-2);
+                
+                singular.add(nominativ);
+                singular.add(genitiv);
+                singular.add(base + "ae");
+                singular.add(base + "am");
+                singular.add(base + "a");
+
+                plural.add(base + "ae");
+                plural.add(base + "arum");
+                plural.add(base + "is");
+                plural.add(base + "as");
+                plural.add(base + "is");
+            }
+        } else if ( (nominativ.endsWith("us") || nominativ.endsWith("um")) && genitiv.endsWith("i")) {
+            // O DEKLINATION
+            String base = nominativ.substring(0, nominativ.length()-2);
+            
+            singular.add(nominativ);
+            singular.add(genitiv);
+            singular.add(base + "o");
+            singular.add(base + "um");
+            singular.add(base + "o");
+
+            if (gender.contains("m")) {
+                plural.add(base + "i");
+            } else { 
+                plural.add(base + "a");
+            }
+            plural.add(base + "orum");
+            plural.add(base + "is");
+            if (gender.contains("m")) {
+                plural.add(base + "os");
+            } else { 
+                plural.add(base + "a");
+            }
+            plural.add(base + "is");
+        } else if (nominativ.endsWith("er") && genitiv.endsWith("i")) {
+            // O DEKLINATION auf -er
+            String base = genitiv.substring(0, genitiv.length()-1);
+            
+            singular.add(nominativ);
+            singular.add(genitiv);
+            singular.add(base + "o");
+            singular.add(base + "um");
+            singular.add(base + "o");
+
+            plural.add(base + "i");
+            plural.add(base + "orum");
+            plural.add(base + "is");
+            plural.add(base + "os");
+            plural.add(base + "is");            
+        } else if (nominativ.endsWith("us") && genitiv.endsWith("us")) {
+            // U DEKLINATION
+            String base = nominativ.substring(0, nominativ.length()-2);
+
+            singular.add(nominativ);
+            singular.add(genitiv);
+            singular.add(base + "ui");
+            singular.add(base + "um");
+            singular.add(base + "u");
+
+            plural.add(base + "us");
+            plural.add(base + "uum");
+            plural.add(base + "ibus");
+            plural.add(base + "us");
+            plural.add(base + "ibus");
+        } else if (genitiv.endsWith("is")) {
+            // KONSONANTISCHE DEKLINATION
+            String base = genitiv.substring(0, genitiv.length()-2);
+
+            singular.add(nominativ);
+            singular.add(genitiv);
+            singular.add(base + "i");
+            singular.add(base + "em");
+            singular.add(base + "e");
+
+            if (gender.contains("n")) {
+                plural.add(base + "a");
+            } else { 
+                plural.add(base + "es");
+            }
+            plural.add(base + "um");
+            plural.add(base + "ibus");
+            plural.add(plural.get(0));
+            plural.add(base + "ibus");
+        } else if (nominativ.endsWith("es") && genitiv.endsWith("ei")) {
+            // E DEKLINATION
+            String base = genitiv.substring(0, genitiv.length()-1);
+
+            singular.add(nominativ);
+            singular.add(genitiv);
+            singular.add(base + "i");
+            singular.add(base + "m");
+            singular.add(base);
+
+            plural.add(base + "s");
+            plural.add(base + "rum");
+            plural.add(base + "bus");
+            plural.add(base + "s");
+            plural.add(base + "bus");
+        } else {
+            System.out.println(nominativ + " " + genitiv);
+        }
+
+        deklination.put("Singular", singular);
+        deklination.put("Plural", plural);
     }
 
     public String getGender() {
         return gender;
     }
 
-    public ArrayList<String> getDeklination() {
-        return this.deklination;
+    public HashMap<String, ArrayList<String>> getDeklination() {
+        return deklination;
     }
 }

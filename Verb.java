@@ -148,7 +148,7 @@ public class Verb extends Vocab {
                     futurII = generateFuturIIForms(perfektBaseform);
                 }
 
-            } else {
+            } else if (givenForms.size() > 2){
 
                 //KONSONANTISCHE KONJUGATION
 
