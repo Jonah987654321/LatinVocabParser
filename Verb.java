@@ -34,6 +34,9 @@ public class Verb extends Vocab {
             if (givenForms.size() == 1) {
 
                 if (basicForm.endsWith("are")) {
+
+                    // A DEKLINATION
+
                     String praesensBaseform = basicForm.substring(0, basicForm.length()-3);
                     
                     praesens.add(praesensBaseform + "o");
@@ -49,7 +52,19 @@ public class Verb extends Vocab {
                     imperfekt.add(praesensBaseform + "bamus");
                     imperfekt.add(praesensBaseform + "batis");
                     imperfekt.add(praesensBaseform + "bant");
+
+                    String perfektBaseform = basicForm.substring(0, basicForm.length()-2) + "v";
+                    
+                    perfekt.add(perfektBaseform + "i");
+                    perfekt.add(perfektBaseform + "isti");
+                    perfekt.add(perfektBaseform + "it");
+                    perfekt.add(perfektBaseform + "imus");
+                    perfekt.add(perfektBaseform + "istis");
+                    perfekt.add(perfektBaseform + "erunt");
                 } else {
+
+                    // E-DEKLINATION (?)
+
                     String praesensBaseform = basicForm.substring(0, basicForm.length()-2);
 
                     praesens.add(praesensBaseform + "o");
@@ -65,9 +80,21 @@ public class Verb extends Vocab {
                     imperfekt.add(praesensBaseform + "bamus");
                     imperfekt.add(praesensBaseform + "batis");
                     imperfekt.add(praesensBaseform + "bant");
+
+                    String perfektBaseform = basicForm.substring(0, basicForm.length()-3) + "u";
+                    
+                    perfekt.add(perfektBaseform + "i");
+                    perfekt.add(perfektBaseform + "isti");
+                    perfekt.add(perfektBaseform + "it");
+                    perfekt.add(perfektBaseform + "imus");
+                    perfekt.add(perfektBaseform + "istis");
+                    perfekt.add(perfektBaseform + "erunt");
                 }
 
             } else {
+
+                //KONSONANTISCHE KONJUGATION
+
                 String firstPersPraes = givenForms.get(1);
                 String praesensBaseform = firstPersPraes.substring(0, firstPersPraes.length()-1);
 
@@ -84,6 +111,16 @@ public class Verb extends Vocab {
                 imperfekt.add(praesensBaseform + "ebamus");
                 imperfekt.add(praesensBaseform + "ebatis");
                 imperfekt.add(praesensBaseform + "ebant");
+
+                String firstPersPerf = givenForms.get(2);
+                String perfektBaseform = firstPersPerf.substring(0, firstPersPerf.length()-1);
+                    
+                perfekt.add(perfektBaseform + "i");
+                perfekt.add(perfektBaseform + "isti");
+                perfekt.add(perfektBaseform + "it");
+                perfekt.add(perfektBaseform + "imus");
+                perfekt.add(perfektBaseform + "istis");
+                perfekt.add(perfektBaseform + "erunt");
             }
         }
     }
