@@ -110,8 +110,8 @@ public class Verb extends Vocab {
 
                     // A KONJUGATION
 
-                    String praesensBaseform = basicForm.substring(0, basicForm.length()-3);
-                    
+                    String praesensBaseform = basicForm.substring(0, basicForm.length() - 3);
+
                     praesens.add(praesensBaseform + "o");
                     praesens.add(praesensBaseform + "as");
                     praesens.add(praesensBaseform + "at");
@@ -122,7 +122,7 @@ public class Verb extends Vocab {
                     imperfekt = generateImperfektForms(praesensBaseform);
                     futurI = generateFutureIFormsBoBiBu(praesensBaseform);
 
-                    String perfektBaseform = basicForm.substring(0, basicForm.length()-2) + "v";
+                    String perfektBaseform = basicForm.substring(0, basicForm.length() - 2) + "v";
                     perfekt = generatePerfektForms(perfektBaseform);
                     plusquamperfekt = generatePlusquamperfektForms(perfektBaseform);
                     futurII = generateFuturIIForms(perfektBaseform);
@@ -130,7 +130,7 @@ public class Verb extends Vocab {
 
                     // E-KONJUGATION (?)
 
-                    String praesensBaseform = basicForm.substring(0, basicForm.length()-2);
+                    String praesensBaseform = basicForm.substring(0, basicForm.length() - 2);
 
                     praesens.add(praesensBaseform + "o");
                     praesens.add(praesensBaseform + "s");
@@ -142,18 +142,18 @@ public class Verb extends Vocab {
                     imperfekt = generateImperfektForms(praesensBaseform);
                     futurI = generateFutureIFormsBoBiBu(praesensBaseform);
 
-                    String perfektBaseform = basicForm.substring(0, basicForm.length()-3) + "u";
+                    String perfektBaseform = basicForm.substring(0, basicForm.length() - 3) + "u";
                     perfekt = generatePerfektForms(perfektBaseform);
                     plusquamperfekt = generatePlusquamperfektForms(perfektBaseform);
                     futurII = generateFuturIIForms(perfektBaseform);
                 }
 
-            } else if (givenForms.size() > 2){
+            } else if (givenForms.size() > 2) {
 
-                //KONSONANTISCHE KONJUGATION
+                // KONSONANTISCHE KONJUGATION
 
                 String firstPersPraes = givenForms.get(1);
-                String praesensBaseform = firstPersPraes.substring(0, firstPersPraes.length()-1);
+                String praesensBaseform = firstPersPraes.substring(0, firstPersPraes.length() - 1);
 
                 praesens.add(praesensBaseform + "o");
                 praesens.add(praesensBaseform + "is");
@@ -166,7 +166,7 @@ public class Verb extends Vocab {
                 futurI = generateFutureIFormsAmerica(praesensBaseform);
 
                 String firstPersPerf = givenForms.get(2);
-                String perfektBaseform = firstPersPerf.substring(0, firstPersPerf.length()-1);
+                String perfektBaseform = firstPersPerf.substring(0, firstPersPerf.length() - 1);
                 perfekt = generatePerfektForms(perfektBaseform);
                 plusquamperfekt = generatePlusquamperfektForms(perfektBaseform);
                 futurII = generateFuturIIForms(perfektBaseform);
