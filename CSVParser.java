@@ -10,15 +10,24 @@ import java.util.Arrays;
 public class CSVParser {
     private String filePath;
     private String splitChar;
+    private Integer estimatedSize;
 
     public CSVParser(String filePath, String splitChar)
     {
         this.filePath = filePath;
         this.splitChar = splitChar;
+        this.estimatedSize = 1150;
+    }
+
+    public CSVParser(String filePath, String splitChar, Integer estimatedSize)
+    {
+        this.filePath = filePath;
+        this.splitChar = splitChar;
+        this.estimatedSize = estimatedSize;
     }
 
     public List<List<String>> parse() {
-        List<List<String>> data = new ArrayList<>(1150);
+        List<List<String>> data = new ArrayList<>(this.estimatedSize);
     
         try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), StandardCharsets.UTF_8))) {
             String line;
