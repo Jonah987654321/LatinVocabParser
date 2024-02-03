@@ -119,8 +119,8 @@ public class Verb extends Vocab {
                     praesens.add(praesensBaseform + "atis");
                     praesens.add(praesensBaseform + "ant");
 
-                    imperfekt = generateImperfektForms(praesensBaseform);
-                    futurI = generateFutureIFormsBoBiBu(praesensBaseform);
+                    imperfekt = generateImperfektForms(praesensBaseform + "a");
+                    futurI = generateFutureIFormsBoBiBu(praesensBaseform + "a");
 
                     String perfektBaseform = basicForm.substring(0, basicForm.length() - 2) + "v";
                     perfekt = generatePerfektForms(perfektBaseform);
@@ -171,6 +171,8 @@ public class Verb extends Vocab {
                 plusquamperfekt = generatePlusquamperfektForms(perfektBaseform);
                 futurII = generateFuturIIForms(perfektBaseform);
             }
+        } else {
+            System.out.println(basicForm);
         }
     }
 
