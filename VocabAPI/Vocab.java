@@ -1,3 +1,4 @@
+package VocabAPI;
 import java.util.List;
 
 public class Vocab {
