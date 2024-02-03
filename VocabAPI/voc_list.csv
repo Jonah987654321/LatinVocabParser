@@ -275,7 +275,7 @@ vix;kaum;Adverb;14
 tamquam;wie ;Adverb ;38
 quasi;(Adv.) gewissermaßen, (m. Konj.) als ob;Adverb, Subjunktion;40
 an;oder (etwa);Fragesignal;24
-#NAME?;Fragesigna(das nicht übersetzt wird);Fragesignal;7
+-ne (angehängt);Fragesignal (das nicht übersetzt wird);Fragesignal;7
 nonne?;denn nicht?, etwa nicht?;Fragesignal;7
 num;indirekte Frage: ob;Fragesignal;29
 num?;etwa?;Fragesignal;7
@@ -303,7 +303,7 @@ itaque;deshalb, daher;Konjunktion;7
 nam;denn;Konjunktion;2
 neque;und … nicht, auch … nicht, aber … nicht;Konjunktion;4
 proinde;also, daher;Konjunktion;11
-#NAME?;und;Konjunktion;14
+-que (angehängt);und;Konjunktion;14
 quoque (nachgestellt);auch;Konjunktion;34
 sed;aber, (je)doch, sondern;Konjunktion;2
 tamen;dennoch, trotzdem;Konjunktion;17
