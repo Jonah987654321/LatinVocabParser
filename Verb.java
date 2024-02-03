@@ -162,8 +162,13 @@ public class Verb extends Vocab {
                 praesens.add(praesensBaseform + "itis");
                 praesens.add(praesensBaseform + "unt");
 
-                imperfekt = generateImperfektForms(praesensBaseform + "e");
-                futurI = generateFutureIFormsAmerica(praesensBaseform);
+                if (praesensBaseform.endsWith("e")) {
+                    imperfekt = generateImperfektForms(praesensBaseform);
+                    futurI = generateFutureIFormsBoBiBu(praesensBaseform);
+                } else {
+                    imperfekt = generateImperfektForms(praesensBaseform + "e");
+                    futurI = generateFutureIFormsAmerica(praesensBaseform);
+                }
 
                 String firstPersPerf = givenForms.get(2);
                 String perfektBaseform = firstPersPerf.substring(0, firstPersPerf.length() - 1);
