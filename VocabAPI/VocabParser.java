@@ -8,13 +8,16 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import java.io.InputStreamReader;
+
+
 public class VocabParser {
    private static ArrayList<Vocab> vocabulary;
    private static HashMap<String, ArrayList<Vocab>> vocabsByLesson;
    private static HashMap<String, Vocab> vocabsByBaseForm;
 
    private static List<List<String>> getData() {
-      CSVParser parser = new CSVParser(VocabParser.class.getResource("voc_list.csv").getPath(), ";");
+      CSVParser parser = new CSVParser(new InputStreamReader(VocabParser.class.getResourceAsStream("/LatinVocabParser/VocabAPI/voc_list.csv")), ";");
       List<List<String>> data = parser.parse();
 
       return data;
