@@ -40,23 +40,23 @@ public class VocabParser {
          if(!noDekl.contains(vocab.get(0))) {
             switch (vocab.get(2)) {
                case "Verb":
-                  tmpVocab = new Verb(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3));
+                  tmpVocab = new Verb(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3), Integer.parseInt(vocab.get(4)));
                   break;
 
                case "Substantiv":
-                  tmpVocab = new Noun(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3));
+                  tmpVocab = new Noun(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3), Integer.parseInt(vocab.get(4)));
                   break;
 
                case "Adjektiv":
-                  tmpVocab = new Adjective(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3));
+                  tmpVocab = new Adjective(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3), Integer.parseInt(vocab.get(4)));
                   break;
             
                default:
-                  tmpVocab = new GenericWord(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3), vocab.get(2));
+                  tmpVocab = new GenericWord(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3), vocab.get(2), Integer.parseInt(vocab.get(4)));
                   break;
             }
          } else {
-            tmpVocab = new GenericWord(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3), vocab.get(2));
+            tmpVocab = new GenericWord(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3), vocab.get(2), Integer.parseInt(vocab.get(4)));
          }
 
          // Weiterhin zu beachten sind alle möglichen andere Worttypen (Adverben, Konjuktionen, etc.) und erweiterte (sowas wie Verb, unpersönlich)

@@ -177,8 +177,8 @@ public class Verb extends Vocab {
         }
     }
 
-    public Verb(String latinInfo, List<String> translations, String lesson) {
-        super("", translations, lesson);
+    public Verb(String latinInfo, List<String> translations, String lesson, int id) {
+        super("", translations, lesson, id);
         generateTimeForms(latinInfo);
     }
 

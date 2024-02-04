@@ -7,11 +7,13 @@ public abstract class Vocab {
     private String basicForm;
     private List<String> translations;
     private String lesson;
+    private int id;
 
-    public Vocab(String basicForm, List<String> translations, String lesson) {
+    public Vocab(String basicForm, List<String> translations, String lesson, int id) {
         this.basicForm = basicForm;
         this.translations = translations;
         this.lesson = lesson;
+        this.id = id;
     }
 
     protected void setBasicForm(String form) {
@@ -28,6 +30,9 @@ public abstract class Vocab {
     
     public String getLesson() {
         return lesson;
+    }
+    public int getID() {
+        return id;
     }
 
     public String getGender() {

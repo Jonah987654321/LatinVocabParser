@@ -9,8 +9,8 @@ public class Noun extends Vocab {
     private String gender;
     private HashMap<String, ArrayList<String>> deklination;
 
-    public Noun(String latinInfo, List<String> translations, String lesson) {
-        super("", translations, lesson);
+    public Noun(String latinInfo, List<String> translations, String lesson, int id) {
+        super("", translations, lesson, id);
         generateDeklination(latinInfo);
     }
 

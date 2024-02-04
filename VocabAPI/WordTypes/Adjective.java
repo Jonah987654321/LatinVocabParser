@@ -62,8 +62,8 @@ public class Adjective extends Vocab {
         return;
     }
 
-    public Adjective(String latinInfo, List<String> translations, String lesson) {
-        super("", translations, lesson);
+    public Adjective(String latinInfo, List<String> translations, String lesson, int id) {
+        super("", translations, lesson, id);
         generateDeklination(latinInfo);
     }
 
