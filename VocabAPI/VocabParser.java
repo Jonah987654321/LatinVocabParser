@@ -10,7 +10,7 @@ public class VocabParser {
    private static HashMap<String, ArrayList<Vocab>> vocabsByLesson;
 
    private static List<List<String>> getData() {
-      CSVParser parser = new CSVParser("voc_list.csv", ";");
+      CSVParser parser = new CSVParser(VocabParser.class.getResource("voc_list.csv").getPath(), ";");
       List<List<String>> data = parser.parse();
 
       return data;
@@ -22,29 +22,34 @@ public class VocabParser {
       vocabulary = new ArrayList<Vocab>();
       vocabsByLesson = new HashMap<String, ArrayList<Vocab>>();
 
+      ArrayList<String> noDekl =  new ArrayList<String>(Arrays.asList("tot (indekl.)", "alii... alii..."));
+
       Iterator<List<String>> it = rawData.iterator();
       it.next(); //Skip head
       while(it.hasNext()) {
          List<String> vocab = it.next();
 
          Vocab tmpVocab;
-         //switch (Arrays.asList(vocab.get(2).split(", ")).get(0)) {
-         switch (vocab.get(2)) {
-            case "Verb":
-               tmpVocab = new Verb(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3));
-               break;
+         if(!noDekl.contains(vocab.get(0))) {
+            switch (vocab.get(2)) {
+               case "Verb":
+                  tmpVocab = new Verb(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3));
+                  break;
 
-            case "Substantiv":
-               tmpVocab = new Noun(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3));
-               break;
+               case "Substantiv":
+                  tmpVocab = new Noun(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3));
+                  break;
 
-            case "Adjektiv":
-               tmpVocab = new Vocab(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3));
-               break;
-         
-            default:
-               tmpVocab = new Vocab(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3));
-               break;
+               case "Adjektiv":
+                  tmpVocab = new Adjective(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3));
+                  break;
+            
+               default:
+                  tmpVocab = new Vocab(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3));
+                  break;
+            }
+         } else {
+            tmpVocab = new Vocab(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3));
          }
 
          // Weiterhin zu beachten sind alle möglichen andere Worttypen (Adverben, Konjuktionen, etc.) und erweiterte (sowas wie Verb, unpersönlich)

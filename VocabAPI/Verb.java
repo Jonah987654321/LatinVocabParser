@@ -178,7 +178,7 @@ public class Verb extends Vocab {
                 futurII = generateFuturIIForms(perfektBaseform);
             }
         } else {
-            System.out.println(basicForm);
+            //System.out.println(basicForm);
         }
     }
 
