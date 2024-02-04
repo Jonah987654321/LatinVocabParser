@@ -1,4 +1,4 @@
-package VocabAPI;
+package VocabAPI.WordTypes;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,11 +12,6 @@ public class Verb extends Vocab {
     private ArrayList<String> praesens;
     private ArrayList<String> futurI;
     private ArrayList<String> futurII;
-
-    public Verb(String latinInfo, List<String> translations, String lesson) {
-        super("", translations, lesson);
-        generateTimeForms(latinInfo);
-    }
 
     private ArrayList<String> generateImperfektForms(String baseform) {
         ArrayList<String> generatedForms = new ArrayList<String>();
@@ -182,30 +177,42 @@ public class Verb extends Vocab {
         }
     }
 
+    public Verb(String latinInfo, List<String> translations, String lesson) {
+        super("", translations, lesson);
+        generateTimeForms(latinInfo);
+    }
+
+    @Override
     public ArrayList<String> getImperfekt() {
         return imperfekt;
     }
 
+    @Override
     public ArrayList<String> getPerfekt() {
         return perfekt;
     }
 
+    @Override
     public ArrayList<String> getPlusquamperfekt() {
         return plusquamperfekt;
     }
 
+    @Override
     public ArrayList<String> getPraesens() {
         return praesens;
     }
 
+    @Override
     public ArrayList<String> getFuturI() {
         return futurI;
     }
 
+    @Override
     public ArrayList<String> getFuturII() {
         return futurII;
     }
 
+    @Override
     public HashMap<String, ArrayList<String>> getTimeForms() {
         HashMap<String, ArrayList<String>> allForms = new HashMap<String, ArrayList<String>>();
         allForms.put("Imperfekt", getImperfekt());

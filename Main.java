@@ -1,10 +1,9 @@
-
-import java.util.Arrays;
-import VocabAPI.Verb;
-import VocabAPI.VocabParser;
+import VocabAPI.*;
+import VocabAPI.WordTypes.Vocab;
 
 public class Main {
     public static void main(String[] args) {
-        VocabParser.getAllVocabs();
+        Vocab bonus = VocabParser.getVocabByBaseForm("bonus");
+        System.out.println(bonus.getDeklinationen());
     }
 }

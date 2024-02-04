@@ -1,4 +1,4 @@
-package VocabAPI;
+package VocabAPI.WordTypes;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -238,10 +238,12 @@ public class Noun extends Vocab {
         }
     }
 
+    @Override
     public String getGender() {
         return gender;
     }
 
+    @Override
     public HashMap<String, ArrayList<String>> getDeklination() {
         return deklination;
     }

@@ -1,5 +1,8 @@
 package VocabAPI;
 import java.util.List;
+
+import VocabAPI.WordTypes.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -8,6 +11,7 @@ import java.util.Iterator;
 public class VocabParser {
    private static ArrayList<Vocab> vocabulary;
    private static HashMap<String, ArrayList<Vocab>> vocabsByLesson;
+   private static HashMap<String, Vocab> vocabsByBaseForm;
 
    private static List<List<String>> getData() {
       CSVParser parser = new CSVParser(VocabParser.class.getResource("voc_list.csv").getPath(), ";");
@@ -16,11 +20,11 @@ public class VocabParser {
       return data;
    }
 
-
    private static void parseToVocab() {
       List<List<String>> rawData = getData();
       vocabulary = new ArrayList<Vocab>();
       vocabsByLesson = new HashMap<String, ArrayList<Vocab>>();
+      vocabsByBaseForm = new HashMap<String, Vocab>();
 
       ArrayList<String> noDekl =  new ArrayList<String>(Arrays.asList("tot (indekl.)", "alii... alii..."));
 
@@ -45,16 +49,17 @@ public class VocabParser {
                   break;
             
                default:
-                  tmpVocab = new Vocab(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3));
+                  tmpVocab = new GenericWord(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3), vocab.get(2));
                   break;
             }
          } else {
-            tmpVocab = new Vocab(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3));
+            tmpVocab = new GenericWord(vocab.get(0), Arrays.asList(vocab.get(1).split(", ")), vocab.get(3), vocab.get(2));
          }
 
          // Weiterhin zu beachten sind alle möglichen andere Worttypen (Adverben, Konjuktionen, etc.) und erweiterte (sowas wie Verb, unpersönlich)
 
          vocabulary.add(tmpVocab);
+         vocabsByBaseForm.put(tmpVocab.getBasicForm(), tmpVocab);
          if (!vocabsByLesson.containsKey(vocab.get(3))) {
             vocabsByLesson.put(vocab.get(3), new ArrayList<Vocab>());
          }
@@ -75,5 +80,12 @@ public class VocabParser {
          parseToVocab();
       }
       return vocabsByLesson.get(lesson);
+   }
+
+   public static Vocab getVocabByBaseForm(String baseForm){
+      if (vocabulary == null) {
+         parseToVocab();
+      }
+      return vocabsByBaseForm.get(baseForm);
    }
 }

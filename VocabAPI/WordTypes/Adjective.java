@@ -1,4 +1,4 @@
-package VocabAPI;
+package VocabAPI.WordTypes;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,6 +35,8 @@ public class Adjective extends Vocab {
         String femininumInfinitive = dataArr.get(1);
         String neutrumInfinitive = dataArr.get(2);
 
+        this.setBasicForm(maskulinumInfinitive);
+
         if ( (maskulinumInfinitive.endsWith("us") || maskulinumInfinitive.endsWith("er")) && femininumInfinitive.endsWith("a") && neutrumInfinitive.endsWith("um")) {
             String base = maskulinumInfinitive.endsWith("us") ?  maskulinumInfinitive.substring(0, maskulinumInfinitive.length()-2) : maskulinumInfinitive;
             maskulinum = generateForms(maskulinumInfinitive, base, new String[]{"i", "o", "um", "o"}, new String[]{"i", "orum", "is", "os", "is"});
@@ -65,23 +67,27 @@ public class Adjective extends Vocab {
         generateDeklination(latinInfo);
     }
 
-    public HashMap<String, ArrayList<String>> getMaskulinumDeklination() {
+    @Override
+    public HashMap<String, ArrayList<String>> getMaskulinum() {
         return maskulinum;
     }
 
-    public HashMap<String, ArrayList<String>> getFemininumDeklination() {
+    @Override
+    public HashMap<String, ArrayList<String>> getFemininum() {
         return femininum;
     }
 
-    public HashMap<String, ArrayList<String>> getNeutrumDeklination() {
+    @Override
+    public HashMap<String, ArrayList<String>> getNeutrum() {
         return neutrum;
     }
 
-    public HashMap<String, HashMap<String, ArrayList<String>>> getAllDeklination() {
+    @Override
+    public HashMap<String, HashMap<String, ArrayList<String>>> getDeklinationen() {
         HashMap<String, HashMap<String, ArrayList<String>>> allDekl = new HashMap<String, HashMap<String, ArrayList<String>>>();
-        allDekl.put("m", getMaskulinumDeklination());
-        allDekl.put("f", getFemininumDeklination());
-        allDekl.put("n", getNeutrumDeklination());
+        allDekl.put("m", getMaskulinum());
+        allDekl.put("f", getFemininum());
+        allDekl.put("n", getNeutrum());
 
         return allDekl;
     }
