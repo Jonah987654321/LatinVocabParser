@@ -92,7 +92,7 @@ public class VocabParser {
       return vocabsByBaseForm.get(baseForm);
    }
 
-   private static ArrayList<Vocab> getVocabStartingWith(String start) {
+   private static ArrayList<Vocab> getVocabsStartingWith(String start) {
       ArrayList<Vocab> result = new ArrayList<>();
       for(Vocab v: vocabulary) {
          if(v.getBasicForm().startsWith(start)) {
@@ -107,11 +107,12 @@ public class VocabParser {
       ArrayList<Vocab> possibles = new ArrayList<>();
       while(!found) {
          form = form.substring(0, form.length()-1);
-         possibles = getVocabStartingWith(form);
+         possibles = getVocabsStartingWith(form);
 
          for (Vocab v: possibles) {
             //check all forms if one of them is the same as requested
          }
       }
+      return possibles.get(0);
    }
 }
