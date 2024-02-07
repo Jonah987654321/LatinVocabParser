@@ -318,7 +318,7 @@ centum;hundert;Numerale;I 06;316
 decem;zehn;Numerale;20;317
 duo, duae, duo;zwei;Numerale;19;318
 mille (indekl.), Pl. milia, milium;tausend, Tausend(e);Numerale;37;319
-novem;neun;Numerale;27, I 06;320
+novem;neun;Numerale;27;320
 octo;acht;Numerale;I 06;321
 quattuor;vier;Numerale;20;322
 quinque;fünf;Numerale;20;323
@@ -1200,3 +1200,4 @@ se continere;sich aufhalten;Verb, Wendung;32;1198
 se fingere;sich … stellen;Verb, Wendung;25;1199
 se praebere;sich zeigen, sich erweisen als;Verb, Wendung;15;1200
 vitam agere;sein Leben verbringen;Verb, Wendung;9;1201
+novem;neun;Numerale;I 06;1202
