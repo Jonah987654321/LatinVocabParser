@@ -125,43 +125,44 @@ public class VocabParser {
 
       // find the fitting vocab and correct form
       for (int i = 0; i < possibleVocabs.size(); i++) {
-         foundVocab = possibleVocabs.get(i);
+        foundVocab = possibleVocabs.get(i);
+        System.out.println(foundVocab.getBasicForm());
 
-         // if (foundVocab.getWordType() == "verb") {}
-
-         for (int j = 0; j < foundVocab.getPraesens().size(); j++) {
-            if (foundVocab.getPraesens().get(j).equals(searchedForm)) {
-               return j + 1 + ". Person Präsens von " + foundVocab.getBasicForm();
+         if (foundVocab.getClass().toString().equals("class VocabAPI.WordTypes.Verb"))
+         {
+            System.out.println("true");
+            for (int j = 0; j < foundVocab.getPraesens().size(); j++) {
+               if (foundVocab.getPraesens().get(j).equals(searchedForm)) {
+                  return j + 1 + ". Person Präsens von " + foundVocab.getBasicForm();
+               }
+            }            for (int j = 0; j < foundVocab.getFuturI().size(); j++) {
+               if (foundVocab.getFuturI().get(j).equals(searchedForm)) {
+                  return j + 1 + ". Person Futur I von " + foundVocab.getBasicForm();
+               }
             }
-         }
 
-         for (int j = 0; j < foundVocab.getFuturI().size(); j++) {
-            if (foundVocab.getFuturI().get(j).equals(searchedForm)) {
-               return j + 1 + ". Person Futur I von " + foundVocab.getBasicForm();
+            for (int j = 0; j < foundVocab.getFuturII().size(); j++) {
+               if (foundVocab.getFuturII().get(j).equals(searchedForm)) {
+                  return j + 1 + ". Person Futur II von " + foundVocab.getBasicForm();
+               }
             }
-         }
 
-         for (int j = 0; j < foundVocab.getFuturII().size(); j++) {
-            if (foundVocab.getFuturII().get(j).equals(searchedForm)) {
-               return j + 1 + ". Person Futur II von " + foundVocab.getBasicForm();
+            for (int j = 0; j < foundVocab.getImperfekt().size(); j++) {
+               if (foundVocab.getImperfekt().get(j).equals(searchedForm)) {
+                  return j + 1 + ". Person Imperfekt von " + foundVocab.getBasicForm();
+               }
             }
-         }
 
-         for (int j = 0; j < foundVocab.getImperfekt().size(); j++) {
-            if (foundVocab.getImperfekt().get(j).equals(searchedForm)) {
-               return j + 1 + ". Person Imperfekt von " + foundVocab.getBasicForm();
+            for (int j = 0; j < foundVocab.getPerfekt().size(); j++) {
+               if (foundVocab.getPerfekt().get(j).equals(searchedForm)) {
+                  return j + 1 + ". Person Perfekt von " + foundVocab.getBasicForm();
+               }
             }
-         }
 
-         for (int j = 0; j < foundVocab.getPerfekt().size(); j++) {
-            if (foundVocab.getPerfekt().get(j).equals(searchedForm)) {
-               return j + 1 + ". Person Perfekt von " + foundVocab.getBasicForm();
-            }
-         }
-
-         for (int j = 0; j < foundVocab.getPlusquamperfekt().size(); j++) {
-            if (foundVocab.getPlusquamperfekt().get(j).equals(searchedForm)) {
-               return j + 1 + ". Person Plusquamperfekt von " + foundVocab.getBasicForm();
+            for (int j = 0; j < foundVocab.getPlusquamperfekt().size(); j++) {
+               if (foundVocab.getPlusquamperfekt().get(j).equals(searchedForm)) {
+                  return j + 1 + ". Person Plusquamperfekt von " + foundVocab.getBasicForm();
+               }
             }
          }
       }
