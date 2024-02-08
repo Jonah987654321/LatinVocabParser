@@ -17,7 +17,7 @@ public class VocabParser {
    private static HashMap<String, Vocab> vocabsByBaseForm;
 
    private static List<List<String>> getData() {
-      CSVParser parser = new CSVParser(new InputStreamReader(VocabParser.class.getResourceAsStream("voc_list.csv")),
+      CSVParser parser = new CSVParser(new InputStreamReader(VocabParser.class.getResourceAsStream("/LatinVocabParser/VocabAPI/voc_list.csv")),
             ";");
       List<List<String>> data = parser.parse();
 
