@@ -115,7 +115,7 @@ public class VocabParser {
       searchedForm = searchedForm.replace(" ", "");
 
       // find all possible vocabs
-      for (int i = 1; i < searchedForm.length(); i++) {
+      for (int i = 0; i < searchedForm.length(); i++) {
          if (possibleVocabs.size() < 1) {
             possibleVocabs = getVocabsStartingWith(searchedForm.substring(0, searchedForm.length() - i));
          } else
@@ -128,14 +128,16 @@ public class VocabParser {
         foundVocab = possibleVocabs.get(i);
         System.out.println(foundVocab.getBasicForm());
 
-         if (foundVocab.getClass().toString().equals("class VocabAPI.WordTypes.Verb"))
+         switch(foundVocab.getClass().toString())
          {
-            System.out.println("true");
+         case "class VocabAPI.WordTypes.Verb":
             for (int j = 0; j < foundVocab.getPraesens().size(); j++) {
                if (foundVocab.getPraesens().get(j).equals(searchedForm)) {
                   return j + 1 + ". Person Präsens von " + foundVocab.getBasicForm();
                }
-            }            for (int j = 0; j < foundVocab.getFuturI().size(); j++) {
+            }
+            
+            for (int j = 0; j < foundVocab.getFuturI().size(); j++) {
                if (foundVocab.getFuturI().get(j).equals(searchedForm)) {
                   return j + 1 + ". Person Futur I von " + foundVocab.getBasicForm();
                }
@@ -164,7 +166,18 @@ public class VocabParser {
                   return j + 1 + ". Person Plusquamperfekt von " + foundVocab.getBasicForm();
                }
             }
+            break;
+         case "class VocabAPI.WordTypes.Noun":
+            for (int j = 0; j < foundVocab.getDeklination().get("Singular").size(); j++)
+            {
+               if (searchedForm.equals(foundVocab.getDeklination().get("Singular").get(j)))
+               {
+                  return j + 1 + ". Fall Singular";
+               }
+            }
+            break;
          }
+         
       }
       return "Vocab not found";
    }
