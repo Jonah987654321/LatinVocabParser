@@ -38,7 +38,7 @@ public class Noun extends Vocab {
             
         HashMap<String, ArrayList<String>> parentesForms = new HashMap<>();
         parentesForms.put("Singular", new ArrayList<>());
-        parentesForms.put("Plural", new ArrayList<>(Arrays.asList("parentes", "parentium", "parentibus", "rentibus", "parentibus")));
+        parentesForms.put("Plural", new ArrayList<>(Arrays.asList("parentes", "parentium", "parentibus", "parentes", "parentibus")));
         irregularities.put("parentes", parentesForms);
 
         if (irregularities.containsKey(nominativ)) {
@@ -77,10 +77,14 @@ public class Noun extends Vocab {
             plural.add(nominativ);
             plural.add(genitiv);
 
-            if (genitiv.endsWith("orum")) {
+            if (genitiv.endsWith("orum") && nominativ.endsWith("i")) {
                 String base = genitiv.substring(0, genitiv.length() - 4);
                 plural.add(base + "is");
-                plural.add(base + "os");
+                if(this.gender.contains("m")) {
+                    plural.add(base + "os");
+                } else {
+                    plural.add(nominativ);
+                }
                 plural.add(base + "is");
             } else if (genitiv.endsWith("arum")) {
                 String base = genitiv.substring(0, genitiv.length() - 4);
@@ -222,7 +226,7 @@ public class Noun extends Vocab {
             for (int i = 2; i < givenForms.size(); ++i) {
                 List<String> irregularityData = Arrays.asList(givenForms.get(i).split(" "));
                 if (irregularityData.size() > 3) {
-                    // Alternative Form
+                    System.out.println(irregularityData);
                 } else {
                     List<String> irrCase = Arrays.asList(irregularityData.get(0).split("/"));
                     for (int j = 0; j < irrCase.size(); j++) {
