@@ -5,5 +5,6 @@ public class Main {
     public static void main(String[] args) {
         Vocab bonus = VocabParser.getVocabByBaseForm("bonus");
         System.out.println(bonus.getDeklinationen());
+        System.out.println("\n\n" + VocabParser.detectForm("+"));
     }
 }
