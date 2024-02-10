@@ -126,7 +126,6 @@ public class VocabParser {
       // find the fitting vocab and correct form
       for (int i = 0; i < possibleVocabs.size(); i++) {
         foundVocab = possibleVocabs.get(i);
-        System.out.println(foundVocab.getBasicForm());
 
          switch(foundVocab.getClass().toString())
          {
@@ -172,7 +171,14 @@ public class VocabParser {
             {
                if (searchedForm.equals(foundVocab.getDeklination().get("Singular").get(j)))
                {
-                  return j + 1 + ". Fall Singular";
+                  return j + 1 + ". Fall Singular von " + foundVocab.getBasicForm();
+               }
+            }
+            for (int j = 0; j < foundVocab.getDeklination().get("Plural").size(); j++)
+            {
+               if (searchedForm.equals(foundVocab.getDeklination().get("Plural").get(j)))
+               {
+                  return j + 1 + ". Fall Plural von " + foundVocab.getBasicForm();
                }
             }
             break;
