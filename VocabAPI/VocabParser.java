@@ -110,6 +110,9 @@ public class VocabParser {
    }
 
    public static String detectForm(String searchedForm) {
+      if (vocabulary == null) {
+         parseToVocab();
+      }
       ArrayList<Vocab> possibleVocabs = new ArrayList<>();
       Vocab foundVocab;
       searchedForm = searchedForm.replace(" ", "");
